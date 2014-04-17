@@ -186,6 +186,14 @@ The body of the advice is in BODY."
 
 (add-hook 'mouse-leave-buffer-hook 'prelude-auto-save-command)
 
+;; Autosave buffers when focus is lost
+(defun prelude-save-all-buffers ()
+  "Save all modified buffers, without prompts."
+  (save-some-buffers 'dont-ask))
+
+(when (version<= "24.4" emacs-version)
+  (add-hook 'focus-out-hook 'prelude-save-all-buffers))
+
 ;; highlight the current line
 (global-hl-line-mode +1)
 
@@ -375,6 +383,14 @@ indent yanked text (with prefix arg don't indent)."
 
 ;; enable winner-mode to manage window configurations
 (winner-mode +1)
+
+;; diff-hl
+(global-diff-hl-mode +1)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
+;; easy-kill
+(global-set-key [remap kill-ring-save] 'easy-kill)
+(global-set-key [remap mark-sexp] 'easy-mark)
 
 (provide 'prelude-editor)
 
