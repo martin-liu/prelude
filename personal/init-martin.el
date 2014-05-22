@@ -1,4 +1,4 @@
-;;; init-martin --- This is Martin's config
+;;;p init-martin --- This is Martin's config
 ;;; Commentary:
 ;;; Code:
 

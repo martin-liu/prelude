@@ -24,8 +24,15 @@
 
 
 ;; highlight-indentation
+(add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
 (highlight-indentation-current-column-mode t)
 (set-face-background 'highlight-indentation-current-column-face "#c3b3b3")
+
+;; emmet-mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+
 
 (provide 'm-package)
 ;;; m-package ends here
