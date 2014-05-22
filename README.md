@@ -1,3 +1,5 @@
+[![Gittip](http://img.shields.io/gittip/bbatsov.svg)](https://www.gittip.com/bbatsov/)
+
 Emacs Prelude
 =============
 
@@ -386,6 +388,11 @@ If you're an `evil-mode` user you'll probably do well to disable `key-chord-mode
 (key-chord-mode -1)
 ```
 
+#### vim emulation
+
+If you want to use vim inside of emacs enable the `prelude-evil` module which provides
+support for `evil-mode`.
+
 ## Automatic package installation
 
 The default Prelude installation comes with a bare minimum of
@@ -605,6 +612,8 @@ and send me a pull request. :-)
 ## Support
 
 Support is available via the Prelude Google Group <emacs-prelude@googlegroups.com>.
+
+There's also a Freenode channel you can visit - `#prelude-emacs`.
 
 ## Contributors
 
