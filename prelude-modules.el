@@ -14,7 +14,7 @@
 ;; (require 'prelude-latex)
 (require 'prelude-lisp)
 (require 'prelude-mediawiki)
-(Require 'prelude-org)
+(require 'prelude-org)
 ;; (require 'prelude-perl)
 (require 'prelude-python)
 (require 'prelude-ruby)
