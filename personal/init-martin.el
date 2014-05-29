@@ -22,8 +22,9 @@
 (setq auto-save-default nil) ; stop creating those #autosave# files
 
 ;; Setting font
-(set-face-attribute
- 'default nil :family "menlo" :height 150)
+(let ((font (if (equal system-type 'gnu/linux) "Ubuntu Mono" "Menlo")))
+  (set-face-attribute
+   'default nil :family font :height 150))
 
 ;; Line number
 (global-linum-mode t)
