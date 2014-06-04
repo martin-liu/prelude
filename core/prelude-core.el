@@ -163,7 +163,7 @@ point reaches the beginning or end of the buffer, stop there."
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(defun prelude-indent-region-or-buffer ()
+(defun prelude-indent-buffer-or-region ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
@@ -291,11 +291,38 @@ there's a region, all lines that region covers will be duplicated."
   (interactive)
   (untabify (point-min) (point-max)))
 
+(defun prelude-untabify-buffer-or-region ()
+  "Untabify a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (untabify (region-beginning) (region-end))
+          (message "Untabify selected region."))
+      (progn
+        (prelude-untabify-buffer)
+        (message "Untabify buffer.")))))
+
 (defun prelude-cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
   (interactive)
-  (prelude-indent-buffer)
   (prelude-untabify-buffer)
+  (prelude-indent-buffer)
+  (whitespace-cleanup))
+
+(defun prelude-cleanup-buffer-or-region ()
+  "Cleanup a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (untabify (region-beginning) (region-end))
+          (indent-region (region-beginning) (region-end))
+          (message "Cleanup selected region."))
+      (progn
+        (prelude-untabify-buffer)
+        (prelude-indent-buffer)
+        (message "Cleanup buffer."))))
   (whitespace-cleanup))
 
 (defun prelude-eval-and-replace ()
@@ -403,9 +430,6 @@ Doesn't mess with special buffers."
     "Press <C-c p g> or <s-g> to run grep on a project."
     "Press <C-c p s> or <s-p> to switch between projects."
     "Press <C-=> or <s-x> to expand the selected region."
-    "Press <jj> quickly to jump to the beginning of a visible word."
-    "Press <jk> quickly to jump to a visible character."
-    "Press <jl> quickly to jump to a visible line."
     "Press <C-c g> to search in Google."
     "Press <C-c G> to search in GitHub."
     "Press <C-c y> to search in YouTube."
