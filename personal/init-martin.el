@@ -24,7 +24,7 @@
 ;; Setting font
 (let ((font (if (equal system-type 'gnu/linux) "Ubuntu Mono" "Menlo")))
   (set-face-attribute
-   'default nil :family font :height 150))
+   'default nil :family font :height 180))
 
 ;; Line number
 (global-linum-mode t)
