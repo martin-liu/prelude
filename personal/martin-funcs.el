@@ -8,7 +8,7 @@
   "Append the value of the preceding sexp as comment."
   (interactive)
   (let ((value (eval (preceding-sexp))))
-    (insert (format " ; => %s" value))))
+    (insert (format " ; => %S" value))))
 
 ;;; 2. Org insert color
 (defun org-insert-with-color (color)
@@ -20,6 +20,7 @@
 ;;; Bind keys
 (global-set-key "\C-cc" 'm-eval-and-append-as-comment)
 (global-set-key "\C-q" 'goto-last-change)
+
 ;;;; Org
 (add-hook 'org-mode-hook
           (lambda ()
