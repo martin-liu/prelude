@@ -17,11 +17,7 @@
   (insert (concat "[[color:" color "][]]"))
   (backward-char 2))
 
-;;; Bind keys
-(global-set-key "\C-cc" 'm-eval-and-append-as-comment)
-(global-set-key "\C-q" 'goto-last-change)
-
-;;;; Org
+;;;; Org insert with color
 (add-hook 'org-mode-hook
           (lambda ()
             ;; org-mode color
@@ -46,6 +42,10 @@
 (local-set-key (kbd "C-c C-c") 'org-insert-with-color)
 ))
 
+
+;;; Bind keys
+(global-set-key "\C-cc" 'm-eval-and-append-as-comment)
+(global-set-key "\C-q" 'goto-last-change)
 
 (provide 'martin-funcs)
 

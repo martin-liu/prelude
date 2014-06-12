@@ -13,7 +13,7 @@
 (require 'prelude-js)
 ;; (require 'prelude-latex)
 (require 'prelude-lisp)
-(require 'prelude-mediawiki)
+;(require 'prelude-mediawiki)
 (require 'prelude-org)
 ;; (require 'prelude-perl)
 (require 'prelude-python)
@@ -26,9 +26,9 @@
 (require 'prelude-xml)
 
 
+;(require 'prelude-ido)
+;(require 'prelude-company) ; auto-complete
 (require 'prelude-helm)
-(require 'prelude-ido)
-(require 'prelude-company) ; auto-complete
 ;; (require 'prelude-key-chord)
 
 
