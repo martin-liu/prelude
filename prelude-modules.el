@@ -26,8 +26,8 @@
 (require 'prelude-xml)
 
 
-;(require 'prelude-ido)
-;(require 'prelude-company) ; auto-complete
+(require 'prelude-ido)
+(require 'prelude-company) ; auto-complete
 (require 'prelude-helm)
 ;; (require 'prelude-key-chord)
 
