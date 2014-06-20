@@ -23,6 +23,11 @@
 (el-get 'sync)
 
 
+;; require some packages
+(prelude-require-packages '(highlight-indentation
+                            emmet-mode
+                            back-button))
+
 ;; highlight-indentation
 (add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
 (highlight-indentation-current-column-mode t)
@@ -46,6 +51,10 @@
   (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
 ;; helm keys
 (global-set-key (kbd "\C-cj") 'helm-imenu)
+
+;; back-button
+(require 'back-button)
+(back-button-mode 1)
 
 (provide 'm-package)
 ;;; m-package ends here
