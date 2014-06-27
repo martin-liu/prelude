@@ -6,12 +6,15 @@
 ;;; Start config
 (server-start)
 
-;; Use command key as M, option key as S
+;; Windows: Use windows key as Super key
+(setq w32-pass-lwindow-to-system nil)
+(setq w32-lwindow-modifier 'super) ; Left Windows key
+;; MAC: Use command key as M, option key as S
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 
 ;; Key binds
- ; C-t 设置标记
+ ; C-t
 (global-set-key (kbd "C-'") 'set-mark-command)
 
 ;; Disable ~ and # files
@@ -20,7 +23,7 @@
 
 ;; Setting font
 (set-face-attribute
- 'default nil :height 150)
+ 'default nil :family "menlo" :height 150)
 
 ;; Line number
 (global-linum-mode t)
