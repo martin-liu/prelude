@@ -34,6 +34,7 @@
 
 (require 'thingatpt)
 (require 'dash)
+(require 'ov)
 
 (defun prelude-open-with (arg)
   "Open visited file in default external program.
@@ -162,7 +163,7 @@ point reaches the beginning or end of the buffer, stop there."
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(defun prelude-indent-region-or-buffer ()
+(defun prelude-indent-buffer-or-region ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
@@ -181,18 +182,18 @@ point reaches the beginning or end of the buffer, stop there."
     (mark-defun)
     (indent-region (region-beginning) (region-end))))
 
+(defun prelude-todo-ov-evaporate (_ov _after _beg _end &optional _length)
+  (let ((inhibit-modification-hooks t))
+    (if _after (ov-reset _ov))))
+
 (defun prelude-annotate-todo ()
   "Put fringe marker on TODO: lines in the curent buffer."
   (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward
-            (format "[[:space:]]*%s+[[:space:]]*TODO:" comment-start) nil t)
-      (let ((overlay (make-overlay (- (point) 5) (point))))
-        (overlay-put overlay
-                     'before-string
-                     (propertize (format "A")
-                                 'display '(left-fringe right-triangle)))))))
+  (ov-set (format "[[:space:]]*%s+[[:space:]]*TODO:" comment-start)
+          'before-string
+          (propertize (format "A")
+                      'display '(left-fringe right-triangle))
+          'modification-hooks '(prelude-todo-ov-evaporate)))
 
 (defun prelude-copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
@@ -250,12 +251,12 @@ there's a region, all lines that region covers will be duplicated."
         (setq end (point))))
     (goto-char (+ origin (* (length region) arg) arg))))
 
-(defun prelude-rename-file-and-buffer ()
-  "Renames current buffer and file it is visiting."
+(defun prelude-rename-buffer-and-file ()
+  "Rename current buffer and if the buffer is visiting a file, rename it too."
   (interactive)
   (let ((filename (buffer-file-name)))
     (if (not (and filename (file-exists-p filename)))
-        (message "Buffer is not visiting a file!")
+        (rename-buffer (read-from-minibuffer "New name: " (buffer-name)))
       (let ((new-name (read-file-name "New name: " filename)))
         (cond
          ((vc-backend filename) (vc-rename-file filename new-name))
@@ -290,11 +291,38 @@ there's a region, all lines that region covers will be duplicated."
   (interactive)
   (untabify (point-min) (point-max)))
 
+(defun prelude-untabify-buffer-or-region ()
+  "Untabify a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (untabify (region-beginning) (region-end))
+          (message "Untabify selected region."))
+      (progn
+        (prelude-untabify-buffer)
+        (message "Untabify buffer.")))))
+
 (defun prelude-cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
   (interactive)
-  (prelude-indent-buffer)
   (prelude-untabify-buffer)
+  (prelude-indent-buffer)
+  (whitespace-cleanup))
+
+(defun prelude-cleanup-buffer-or-region ()
+  "Cleanup a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (untabify (region-beginning) (region-end))
+          (indent-region (region-beginning) (region-end))
+          (message "Cleanup selected region."))
+      (progn
+        (prelude-untabify-buffer)
+        (prelude-indent-buffer)
+        (message "Cleanup buffer."))))
   (whitespace-cleanup))
 
 (defun prelude-eval-and-replace ()
@@ -402,14 +430,11 @@ Doesn't mess with special buffers."
     "Press <C-c p g> or <s-g> to run grep on a project."
     "Press <C-c p s> or <s-p> to switch between projects."
     "Press <C-=> or <s-x> to expand the selected region."
-    "Press <jj> quickly to jump to the beginning of a visible word."
-    "Press <jk> quickly to jump to a visible character."
-    "Press <jl> quickly to jump to a visible line."
     "Press <C-c g> to search in Google."
     "Press <C-c G> to search in GitHub."
     "Press <C-c y> to search in YouTube."
     "Press <C-c U> to search in DuckDuckGo."
-    "Press <C-c r> to rename the current buffer and file it's visiting."
+    "Press <C-c r> to rename the current buffer and the file it's visiting if any."
     "Press <C-c t> to open a terminal in Emacs."
     "Press <C-c k> to kill all the buffers, but the active one."
     "Press <C-x g> or <s-m> to run magit-status."
@@ -443,12 +468,6 @@ Doesn't mess with special buffers."
     (add-hook 'after-init-hook func)
     (when after-init-time
       (eval form))))
-
-(defun prelude-exchange-point-and-mark ()
-  "Identical to `exchange-point-and-mark' but will not activate the region."
-  (interactive)
-  (exchange-point-and-mark)
-  (deactivate-mark nil))
 
 (require 'epl)
 

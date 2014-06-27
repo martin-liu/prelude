@@ -3,21 +3,12 @@
 ;;; This is Martin's Costomize functions
 
 ;;; Code:
-;; 1. Duplicate current line
-    (defun duplicate-current-line (&optional n)
-      "duplicate current line, make more than 1 copy given a numeric argument"
-      (interactive "p")
-      (save-excursion
-        (let ((nb (or n 1))
-    	  (current-line (thing-at-point 'line)))
-          ;; when on last line, insert a newline first
-          (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
-    	(insert "\n"))
-
-          ;; now insert as many time as requested
-          (while (> n 0)
-    	(insert current-line)
-    	(decf n)))))
+;; 1. Append sexp's value
+(defun m-eval-and-append-as-comment ()
+  "Append the value of the preceding sexp as comment."
+  (interactive)
+  (let ((value (eval (preceding-sexp))))
+    (insert (format " ; => %S" value))))
 
 ;;; 2. Org insert color
 (defun org-insert-with-color (color)
@@ -26,11 +17,8 @@
   (insert (concat "[[color:" color "][]]"))
   (backward-char 2))
 
-;;; Bind keys
-(define-key global-map [C-M-down] 'duplicate-current-line)
-(global-set-key "\C-q" 'goto-last-change)
-;;;; Org
-(add-hook 'org-mode-hook 
+;;;; Org insert with color
+(add-hook 'org-mode-hook
           (lambda ()
             ;; org-mode color
 (org-add-link-type
@@ -54,6 +42,10 @@
 (local-set-key (kbd "C-c C-c") 'org-insert-with-color)
 ))
 
+
+;;; Bind keys
+(global-set-key "\C-cc" 'm-eval-and-append-as-comment)
+(global-set-key "\C-q" 'goto-last-change)
 
 (provide 'martin-funcs)
 
