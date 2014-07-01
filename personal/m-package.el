@@ -51,6 +51,7 @@
   (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
 ;; helm keys
 (global-set-key (kbd "\C-cj") 'helm-imenu)
+(global-set-key (kbd "\C-c\C-g") 'helm-do-grep)
 
 ;; back-button
 (require 'back-button)
