@@ -2,36 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Add repo for package.el
-(add-to-list 'package-archives
-             '("marmalade" .
-               "http://marmalade-repo.org/packages/"))
-
-
-;;; El-get
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/personal/el-get-recipes")
-
-(el-get 'sync)
-
-
-;; require some packages
-(prelude-require-packages '(highlight-indentation
-                            emmet-mode
-                            back-button))
-
-;; highlight-indentation
+;; highlight-indentation, mainly for python, coffee
 (add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
 (highlight-indentation-current-column-mode t)
 (set-face-background 'highlight-indentation-current-column-face "#c3b3b3")
+
+;; color-theme, tomorrow theme
+(disable-theme 'zenburn)
+(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; emmet-mode
 (require 'emmet-mode)
@@ -56,6 +34,59 @@
 ;; back-button
 (require 'back-button)
 (back-button-mode 1)
+
+
+;;iimage mode
+(autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
+(autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
+(defun org-toggle-iimage-in-org ()
+  "display images in your org file"
+  (interactive)
+  (if (face-underline-p 'org-link)
+      (set-face-underline-p 'org-link nil)
+    (set-face-underline-p 'org-link t))
+  (iimage-mode))
+
+
+;;Org && deft
+;;;indent
+(setq org-startup-indented t)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (setq truncate-lines nil)))
+
+;; Deft
+;(require 'deft)
+;(setq deft-directory "C:/Martin/backup/GoogleDrive/doc/note")
+;(setq deft-extension "org")
+;(setq deft-text-mode 'org-mode)
+;(setq deft-use-filename-as-title t)
+;(global-set-key [f8] 'deft)
+
+;; Parentheses
+;; highlight and config color
+(require 'highlight-parentheses)
+(highlight-parentheses-mode t)
+(require 'paren-face)
+(global-paren-face-mode t)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (provide 'm-package)
 ;;; m-package ends here
