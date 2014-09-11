@@ -31,6 +31,7 @@
                             paren-face
                             color-theme-sanityinc-tomorrow
                             emmet-mode
+                            lua-mode
                             back-button))
 
 ;;; ----------------------------------------------------------------------------

@@ -72,21 +72,5 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (provide 'm-package)
 ;;; m-package ends here
