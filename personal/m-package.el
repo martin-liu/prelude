@@ -48,6 +48,12 @@
   (iimage-mode))
 
 
+;; Org auto completion
+(require 'org-ac)
+;; Make config suit for you. About the config item, eval the following sexp.
+;; (customize-group "org-ac")
+(org-ac/config-default)
+
 ;;Org && deft
 ;;;indent
 (setq org-startup-indented t)
