@@ -32,6 +32,7 @@
                             color-theme-sanityinc-tomorrow
                             emmet-mode
                             lua-mode
+                            markdown-mode
                             back-button))
 
 ;;; ----------------------------------------------------------------------------
