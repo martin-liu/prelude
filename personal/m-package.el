@@ -35,6 +35,8 @@
 (require 'back-button)
 (back-button-mode 1)
 
+;; ace-jump
+(global-set-key (kbd "s-<") 'ace-jump-word-mode)
 
 ;;iimage mode
 (autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
