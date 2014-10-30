@@ -34,7 +34,9 @@
                             lua-mode
                             org-ac
                             markdown-mode
-                            back-button))
+                            back-button
+                            yasnippet
+                            ))
 
 ;;; ----------------------------------------------------------------------------
 

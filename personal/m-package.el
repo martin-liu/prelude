@@ -78,7 +78,9 @@
 (require 'paren-face)
 (global-paren-face-mode t)
 
-
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
 
 (provide 'm-package)
 ;;; m-package ends here
