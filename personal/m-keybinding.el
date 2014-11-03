@@ -1,0 +1,28 @@
+;;; m-keybinding
+;;; Commentary:
+;;; Code:
+
+;;; Packages
+;;; ----------------------------------------------------------------------------
+
+;; helm-mode
+;; helm keys
+(global-set-key (kbd "\C-cj") 'helm-imenu)
+(global-set-key (kbd "\C-c\C-g") 'helm-do-grep)
+
+;; ace-jump
+(global-set-key (kbd "s-<") 'ace-jump-word-mode)
+
+;; coffee-mode
+(add-hook 'coffee-mode-hook
+          '(lambda ()
+             (local-set-key "\C-c\C-r" 'coffee-indent-shift-right)
+             (local-set-key "\C-c\C-l" 'coffee-indent-shift-left)
+             ))
+
+;;; ----------------------------------------------------------------------------
+
+;; provide
+(provide 'm-keybinding)
+
+;;; init-martin ends here

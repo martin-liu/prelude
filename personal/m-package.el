@@ -27,28 +27,10 @@
 (unless (boundp 'completion-in-region-function)
   (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
   (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
-;; helm keys
-(global-set-key (kbd "\C-cj") 'helm-imenu)
-(global-set-key (kbd "\C-c\C-g") 'helm-do-grep)
 
 ;; back-button
 (require 'back-button)
 (back-button-mode 1)
-
-;; ace-jump
-(global-set-key (kbd "s-<") 'ace-jump-word-mode)
-
-;;iimage mode
-(autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
-(autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
-(defun org-toggle-iimage-in-org ()
-  "display images in your org file"
-  (interactive)
-  (if (face-underline-p 'org-link)
-      (set-face-underline-p 'org-link nil)
-    (set-face-underline-p 'org-link t))
-  (iimage-mode))
-
 
 ;; Org auto completion
 (require 'org-ac)
