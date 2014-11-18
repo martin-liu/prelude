@@ -28,6 +28,7 @@
 ;; require some packages
 (prelude-require-packages '(highlight-indentation
                             highlight-parentheses
+                            paredit
                             paren-face
                             color-theme-sanityinc-tomorrow
                             emmet-mode
@@ -36,6 +37,9 @@
                             markdown-mode
                             back-button
                             yasnippet
+                            cider
+                            cider-decompile
+                            cider-spy
                             ))
 
 ;;; ----------------------------------------------------------------------------

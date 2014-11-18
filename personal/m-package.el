@@ -62,7 +62,10 @@
 
 ;; Yasnippet
 (require 'yasnippet)
-(yas-global-mode 1)
+(yas-reload-all)
+(add-hook 'prog-mode-hook
+          '(lambda ()
+             (yas-minor-mode)))
 
 (provide 'm-package)
 ;;; m-package ends here
