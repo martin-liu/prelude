@@ -21,27 +21,26 @@
 (add-hook 'org-mode-hook
           (lambda ()
             ;; org-mode color
-(org-add-link-type
- "color" nil
- (lambda (path desc format)
-  (cond
-   ((eq format 'html)
-    (format "<span style=\"color:%s;\">%s</span>" path desc))
-   ((eq format 'latex)
-    (format "{\\color{%s}%s}" path desc)))))
-;; org-mode highlight
-(org-add-link-type
- "hl" nil
- (lambda (path desc format)
-  (cond
-   ((eq format 'html)
-    (format "<font style=\"background-color:%s;\">%s</font>" path desc))
-   ((eq format 'latex)
-    (format "\\colorbox{%s}{%s}" path desc))))) ;; require \usepackage{color}
+            (org-add-link-type
+             "color" nil
+             (lambda (path desc format)
+               (cond
+                ((eq format 'html)
+                 (format "<span style=\"color:%s;\">%s</span>" path desc))
+                ((eq format 'latex)
+                 (format "{\\color{%s}%s}" path desc)))))
+            ;; org-mode highlight
+            (org-add-link-type
+             "hl" nil
+             (lambda (path desc format)
+               (cond
+                ((eq format 'html)
+                 (format "<font style=\"background-color:%s;\">%s</font>" path desc))
+                ((eq format 'latex)
+                 (format "\\colorbox{%s}{%s}" path desc))))) ;; require \usepackage{color}
 
-(local-set-key (kbd "C-c C-c") 'org-insert-with-color)
-))
-
+            (local-set-key (kbd "C-c C-c") 'org-insert-with-color)
+            ))
 
 ;;; Bind keys
 (global-set-key "\C-cc" 'm-eval-and-append-as-comment)
