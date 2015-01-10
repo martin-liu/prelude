@@ -17,7 +17,7 @@
 (setq auto-save-default nil) ; stop creating those #autosave# files
 
 ;; Setting font
-(let ((font (if (equal system-type 'gnu/linux) "Menlo" "Menlo")))
+(let ((font (if (equal system-type 'darwin) "M+ 1m" "Menlo")))
   (set-face-attribute
    'default nil :family font :height 180))
 
