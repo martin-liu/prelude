@@ -3,7 +3,11 @@
 ;;; Code:
 
 ;;; Packages
-;;; ----------------------------------------------------------------------------
+;;; -----------------------------------------------------------------------
+
+;;; Global key-bindings
+;; simple-mode, (for basci editing)
+(global-set-key (kbd "\C-cmo") 'just-one-space)
 
 ;; helm-mode
 ;; helm keys
@@ -13,6 +17,10 @@
 ;; ace-jump
 (global-set-key (kbd "s-<") 'ace-jump-word-mode)
 
+
+;;; -----------------------------------------------------------------------
+
+;;; Hook key-bindings
 ;; coffee-mode
 (add-hook 'coffee-mode-hook
           '(lambda ()
@@ -20,7 +28,7 @@
              (local-set-key "\C-c\C-l" 'coffee-indent-shift-left)
              ))
 
-;;; ----------------------------------------------------------------------------
+;;; -----------------------------------------------------------------------
 
 ;; provide
 (provide 'm-keybinding)
