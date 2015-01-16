@@ -24,6 +24,9 @@
 ;; Line number
 (global-linum-mode t)
 
+;; fill-column
+(setq-default fill-column 80)
+
 ;;Proxy
 ;(setq url-proxy-services
 ;'(("no_proxy" . "localhost")

@@ -38,12 +38,13 @@
 ;; (customize-group "org-ac")
 (org-ac/config-default)
 
-;;Org && deft
+;;Org
 ;;;indent
 (setq org-startup-indented t)
 (add-hook 'org-mode-hook
           (lambda ()
-            (setq truncate-lines nil)))
+            (setq truncate-lines nil)
+            (auto-fill-mode 1)))
 
 ;; Deft
 ;(require 'deft)

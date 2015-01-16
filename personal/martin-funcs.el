@@ -17,6 +17,12 @@
   (insert (concat "[[color:" color "][]]"))
   (backward-char 2))
 
+(defun org-insert-with-red ()
+  "Insert red link"
+  (interactive)
+  (insert "[[color:red][]]")
+  (backward-char 2))
+
 ;;;; Org insert with color
 (add-hook 'org-mode-hook
           (lambda ()
@@ -39,7 +45,7 @@
                 ((eq format 'latex)
                  (format "\\colorbox{%s}{%s}" path desc))))) ;; require \usepackage{color}
 
-            (local-set-key (kbd "C-c C-c") 'org-insert-with-color)
+            (local-set-key (kbd "C-c C-c") 'org-insert-with-red)
             ))
 
 ;;; Bind keys
