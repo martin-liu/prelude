@@ -52,7 +52,6 @@
     diff-hl
     diminish
     easy-kill
-    elisp-slime-nav
     epl
     expand-region
     flycheck
@@ -68,7 +67,6 @@
     magit
     move-text
     operate-on-number
-    rainbow-mode
     smartparens
     smartrep
     undo-tree
@@ -152,6 +150,9 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.pp\\'" puppet-mode puppet-mode)
     ("\\.php\\'" php-mode php-mode)
     ("\\.proto\\'" protobuf-mode protobuf-mode)
+    ("\\.pyd\\'" cython-mode cython-mode)
+    ("\\.pyi\\'" cython-mode cython-mode)
+    ("\\.pyx\\'" cython-mode cython-mode)
     ("PKGBUILD\\'" pkgbuild-mode pkgbuild-mode)
     ("\\.rs\\'" rust-mode rust-mode)
     ("\\.sass\\'" sass-mode sass-mode)
