@@ -20,8 +20,8 @@
 (defun org-insert-with-red ()
   "Insert red link"
   (interactive)
-  (insert "[[color:red][]]")
-  (backward-char 2))
+  (insert "[[code:#c7254e][]] ")
+  (backward-char 3))
 
 ;;;; Org insert with color
 (add-hook 'org-mode-hook
@@ -33,6 +33,15 @@
                (cond
                 ((eq format 'html)
                  (format "<span style=\"color:%s;\">%s</span>" path desc))
+                ((eq format 'latex)
+                 (format "{\\color{%s}%s}" path desc)))))
+            ;; org-mode code
+            (org-add-link-type
+             "code" nil
+             (lambda (path desc format)
+               (cond
+                ((eq format 'html)
+                 (format "<span style=\"padding: 2px 4px;background-color: #f9f2f4;border-radius: 4px;color:%s;\">%s</span>" path desc))
                 ((eq format 'latex)
                  (format "{\\color{%s}%s}" path desc)))))
             ;; org-mode highlight

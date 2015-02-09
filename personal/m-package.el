@@ -32,6 +32,9 @@
 (require 'back-button)
 (back-button-mode 1)
 
+;; Org export
+(setq org-export-htmlize-output-type 'css)
+
 ;; Org auto completion
 (require 'org-ac)
 ;; Make config suit for you. About the config item, eval the following sexp.

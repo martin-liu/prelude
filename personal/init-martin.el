@@ -34,6 +34,7 @@
                             emmet-mode
                             lua-mode
                             org-ac
+                            htmlize ; for highlight code when org mode export to html
                             markdown-mode
                             back-button
                             yasnippet
