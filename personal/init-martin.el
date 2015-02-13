@@ -42,6 +42,7 @@
                             cider-decompile
                             cider-spy
                             pcre2el ; pcre regexp
+                            color-theme-sanityinc-tomorrow ; theme
                             ))
 
 ;;; ----------------------------------------------------------------------------
