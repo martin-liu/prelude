@@ -57,9 +57,42 @@
             (local-set-key (kbd "C-c C-c") 'org-insert-with-red)
             ))
 
+;;; 3. goto-last-change
+(defvar m-last-change-pos1 nil)
+(defvar m-last-change-pos2 nil)
+
+(defun m-swap-last-changes ()
+  (when m-last-change-pos2
+    (let ((tmp m-last-change-pos2))
+      (setf m-last-change-pos2 m-last-change-pos1
+            m-last-change-pos1 tmp))))
+
+(defun m-goto-last-change ()
+  (interactive)
+  (when m-last-change-pos1
+    (let* ((buffer (find-file-noselect (car m-last-change-pos1)))
+           (win (get-buffer-window buffer)))
+      (if win
+          (select-window win)
+        (switch-to-buffer buffer))
+      (goto-char (cdr m-last-change-pos1))
+      (m-swap-last-changes))))
+
+(defun m-buffer-change-hook (beg end len)
+  (let ((bfn (buffer-file-name))
+        (file (car m-last-change-pos1)))
+    (when bfn
+      (if (or (not file) (equal bfn file)) ;; change the same file
+          (setq m-last-change-pos1 (cons bfn end))
+        (progn (setq m-last-change-pos2 (cons bfn end))
+               (m-swap-last-changes))))))
+
+(add-hook 'after-change-functions 'm-buffer-change-hook)
+
+
 ;;; Bind keys
 (global-set-key "\C-cc" 'm-eval-and-append-as-comment)
-(global-set-key "\C-q" 'goto-last-change)
+(global-set-key "\C-q" 'm-goto-last-change)
 
 (provide 'martin-funcs)
 
