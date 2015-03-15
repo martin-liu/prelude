@@ -7,8 +7,12 @@
 (defun m-eval-and-append-as-comment ()
   "Append the value of the preceding sexp as comment."
   (interactive)
-  (let ((value (eval (preceding-sexp))))
-    (insert (format " ; => %S" value))))
+  (cond ((eq 'clojure-mode major-mode)
+         (progn
+           (cider-eval-last-sexp 't)
+           (insert " ; => ")
+           ))
+        (t (insert (format " ; => %S" (eval (preceding-sexp)))))))
 
 ;;; 2. Org insert color
 (defun org-insert-with-color (color)
