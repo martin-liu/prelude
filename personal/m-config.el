@@ -16,6 +16,9 @@
 (setq make-backup-files nil) ; stop creating those backup~ files
 (setq auto-save-default nil) ; stop creating those #autosave# files
 
+;; Theme
+(setq prelude-theme 'sanityinc-tomorrow-eighties)
+
 ;; Setting font
 (let ((font (if (equal system-type 'darwin) "M+ 1m" "Menlo")))
   (set-face-attribute
@@ -26,9 +29,3 @@
 
 ;; fill-column
 (setq-default fill-column 80)
-
-;;Proxy
-(if (equal system-type 'gnu/linux)
-    (setq url-proxy-services
-          '(("no_proxy" . "localhost")
-            ("http" . "hualiu-9766.lvs01.dev.ebayc3.com:53"))))
