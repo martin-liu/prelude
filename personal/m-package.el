@@ -11,11 +11,9 @@
 (disable-theme 'zenburn)
 (load-theme 'sanityinc-tomorrow-eighties t)
 
-;; emmet-mode
-(require 'emmet-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on web-mode
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+;; ace-window, used to jump between windows
+(global-set-key (kbd "C-x o") 'ace-window)
+(setq aw-keys '(?d ?h ?t ?n ?s ?6 ?7 ?8 ?9))
 
 ;; helm-mode
 (require 'helm-config)
@@ -64,12 +62,20 @@
 (require 'paren-face)
 (global-paren-face-mode t)
 
+;;; Programming
+;;-----------------------------------------------------------
 ;; Yasnippet
 (require 'yasnippet)
 (yas-reload-all)
 (add-hook 'prog-mode-hook
           '(lambda ()
              (yas-minor-mode)))
+
+;; emmet-mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on web-mode
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
 (provide 'm-package)
 ;;; m-package ends here
