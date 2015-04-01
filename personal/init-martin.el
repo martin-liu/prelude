@@ -27,6 +27,8 @@
                             cider-decompile
                             cider-spy
                             pcre2el ; pcre regexp
+                            ;; typescript
+                            tss
                             ))
 
 ;;; ----------------------------------------------------------------------------
