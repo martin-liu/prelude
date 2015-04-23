@@ -30,9 +30,14 @@
              (local-set-key "\C-c\C-l" 'coffee-indent-shift-left)
              ))
 
+;; smartparens-mode
+(add-hook 'smartparens-mode-hook
+          '(lambda ()
+             (local-set-key "\C-c\M-w" 'sp-backward-copy-sexp)))
+
 ;;; -----------------------------------------------------------------------
 
-;; provide
+;; Provide
 (provide 'm-keybinding)
 
 ;;; init-martin ends here
