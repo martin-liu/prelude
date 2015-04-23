@@ -15,6 +15,9 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?d ?h ?t ?n ?s ?6 ?7 ?8 ?9))
 
+;; pcre-mode
+(pcre-mode 1)
+
 ;; helm-mode
 (require 'helm-config)
 (helm-mode 1)
@@ -77,5 +80,9 @@
 (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on web-mode
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
+
+
+
+;;-----------------------------------------------------------
 (provide 'm-package)
 ;;; m-package ends here

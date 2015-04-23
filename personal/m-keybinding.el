@@ -18,6 +18,7 @@
 (global-set-key (kbd "s-<") 'ace-jump-word-mode)
 
 ;; martin
+(global-set-key (kbd "M-%") 'query-replace-regexp)
 (global-set-key (kbd "<f6>") (lambda() (interactive)(find-file "~/Dropbox/Martin/doc/note/fragments.org")))
 
 ;;; -----------------------------------------------------------------------
