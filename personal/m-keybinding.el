@@ -34,7 +34,9 @@
 ;; smartparens-mode
 (add-hook 'smartparens-mode-hook
           '(lambda ()
-             (local-set-key "\C-c\M-w" 'sp-backward-copy-sexp)))
+             (local-set-key "\C-c\M-w" 'sp-backward-copy-sexp)
+             (local-set-key (kbd "C-M-<backspace>") 'sp-backward-kill-sexp)))
+
 
 ;;; -----------------------------------------------------------------------
 
