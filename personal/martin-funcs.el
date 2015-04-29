@@ -7,6 +7,8 @@
 (defun m-eval-and-append-as-comment ()
   "Append the value of the preceding sexp as comment."
   (interactive)
+  ;; remove existing comment
+  (comment-kill nil)
   (cond ((eq 'clojure-mode major-mode)
          (progn
            (cider-eval-last-sexp 't)
