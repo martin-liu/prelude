@@ -37,6 +37,11 @@
              (local-set-key "\C-c\M-w" 'sp-backward-copy-sexp)
              (local-set-key (kbd "C-M-<backspace>") 'sp-backward-kill-sexp)))
 
+;; cider-repl-mode
+(add-hook 'cider-repl-mode-hook
+          '(lambda ()
+             (local-set-key "\C-c\C-p" 'cider-repl-previous-input)
+             (local-set-key "\C-c\C-n" 'cider-repl-next-input)))
 
 ;;; -----------------------------------------------------------------------
 
