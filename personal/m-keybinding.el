@@ -16,6 +16,7 @@
 
 ;; ace-jump
 (global-set-key (kbd "s-<") 'ace-jump-word-mode)
+(global-set-key (kbd "s->") 'ace-jump-buffer)
 
 ;; martin
 (global-set-key (kbd "M-%") 'query-replace-regexp)
