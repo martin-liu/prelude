@@ -12,7 +12,6 @@
 (load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; ace-window, used to jump between windows
-(global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?d ?h ?t ?n ?s ?6 ?7 ?8 ?9))
 
 ;; pcre-mode
@@ -80,7 +79,8 @@
 (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on web-mode
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
-
+;; multiple-cursors-mode
+(require 'multiple-cursors)
 
 
 ;;-----------------------------------------------------------

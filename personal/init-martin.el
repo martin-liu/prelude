@@ -16,6 +16,7 @@
                             highlight-parentheses
                             paredit
                             paren-face
+                            multiple-cursors
                             emmet-mode
                             lua-mode
                             org-ac

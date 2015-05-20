@@ -14,9 +14,16 @@
 (global-set-key (kbd "\C-cj") 'helm-imenu)
 (global-set-key (kbd "\C-c\C-g") 'helm-do-grep)
 
+;; ace-window
+(global-set-key (kbd "C-x o") 'ace-window)
+
 ;; ace-jump
 (global-set-key (kbd "s-<") 'ace-jump-word-mode)
 (global-set-key (kbd "s->") 'ace-jump-buffer)
+
+;; multiple-cursors
+(global-set-key (kbd "\C-cmm") 'mc/mark-all-symbols-like-this-in-defun)
+(global-set-key (kbd "\C-cmM") 'mc/mark-all-symbols-like-this)
 
 ;; martin
 (global-set-key (kbd "M-%") 'query-replace-regexp)
