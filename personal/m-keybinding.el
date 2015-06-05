@@ -11,7 +11,7 @@
 
 ;; helm-mode
 ;; helm keys
-(global-set-key (kbd "\C-cj") 'helm-imenu)
+(global-set-key (kbd "\C-ci") 'helm-imenu)
 (global-set-key (kbd "\C-c\C-g") 'helm-do-grep)
 
 ;; ace-window
@@ -20,6 +20,7 @@
 ;; ace-jump
 (global-set-key (kbd "s-<") 'ace-jump-word-mode)
 (global-set-key (kbd "s->") 'ace-jump-buffer)
+(global-set-key (kbd "\C-cj") 'ace-jump-buffer)
 
 ;; multiple-cursors
 (global-set-key (kbd "\C-cmm") 'mc/mark-all-symbols-like-this-in-defun)
