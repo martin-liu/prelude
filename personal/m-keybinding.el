@@ -20,7 +20,8 @@
 ;; ace-jump
 (global-set-key (kbd "s-<") 'ace-jump-word-mode)
 (global-set-key (kbd "s->") 'ace-jump-buffer)
-(global-set-key (kbd "\C-cj") 'ace-jump-buffer)
+(global-set-key (kbd "\C-cJ") 'ace-jump-buffer)
+(global-set-key (kbd "\C-cj") 'imenu)
 
 ;; multiple-cursors
 (global-set-key (kbd "\C-cmm") 'mc/mark-all-symbols-like-this-in-defun)
