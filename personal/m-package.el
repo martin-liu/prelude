@@ -82,6 +82,19 @@
 ;; multiple-cursors-mode
 (require 'multiple-cursors)
 
+;; emacs-eclim
+(require 'eclim)
+(require 'eclimd)
+(custom-set-variables
+ '(eclim-eclipse-dirs '("/Applications/eclipse"))
+ '(eclim-executable "/Applications/eclipse/eclim")
+ '(eclimd-default-workspace "~/martin/code/my/java/")
+ '(eclim-auto-save t)
+ '(eclim-print-debug-messages f))
+(add-hook 'java-mode-hook '(lambda () (eclim-mode t)))
+
+(require 'company-emacs-eclim)
+(company-emacs-eclim-setup)
 
 ;;-----------------------------------------------------------
 (provide 'm-package)
