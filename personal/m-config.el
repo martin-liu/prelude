@@ -22,7 +22,7 @@
 ;; Setting font
 (let ((font (if (equal system-type 'darwin) "M+ 1m" "Menlo")))
   (set-face-attribute
-   'default nil :family font :height 180))
+   'default nil :family font :height 200))
 
 ;; Line number
 (global-linum-mode t)
