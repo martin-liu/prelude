@@ -22,3 +22,4 @@ tramp
 /var/pcache
 ac-comphist.dat
 /.mc-lists.el
+/ensime
