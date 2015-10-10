@@ -50,12 +50,12 @@
             (auto-fill-mode 1)))
 
 ;; Deft
-;(require 'deft)
-;(setq deft-directory "C:/Martin/backup/GoogleDrive/doc/note")
-;(setq deft-extension "org")
-;(setq deft-text-mode 'org-mode)
-;(setq deft-use-filename-as-title t)
-;(global-set-key [f8] 'deft)
+                                        ;(require 'deft)
+                                        ;(setq deft-directory "C:/Martin/backup/GoogleDrive/doc/note")
+                                        ;(setq deft-extension "org")
+                                        ;(setq deft-text-mode 'org-mode)
+                                        ;(setq deft-use-filename-as-title t)
+                                        ;(global-set-key [f8] 'deft)
 
 ;; Parentheses
 ;; highlight and config color
@@ -63,6 +63,9 @@
 (highlight-parentheses-mode t)
 (require 'paren-face)
 (global-paren-face-mode t)
+
+
+
 
 ;;; Programming
 ;;-----------------------------------------------------------
@@ -96,7 +99,30 @@
 ;; (require 'company-emacs-eclim)
 ;; (company-emacs-eclim-setup)
 
-;; jdee
+
+;;; Scheme
+;; geiser
+(setq geiser-active-implementations '(guile))
+
+;;; Scala
+;; ensime
+(setenv "PATH" (concat "/usr/local/bin/sbt:" (getenv "PATH")))
+(setenv "PATH" (concat "/usr/local/bin/scala:" (getenv "PATH")))
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(define-key company-active-map [tab] nil)
+
+
+;;; Web
+;; js2-mode
+(custom-set-variables
+ '(js2-basic-offset 2))
+
+;; web-mode
+(add-hook 'web-mode-hook
+          (lambda ()
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-css-indent-offset 2)
+            (setq web-mode-code-indent-offset 2)))
 
 ;;-----------------------------------------------------------
 (provide 'm-package)

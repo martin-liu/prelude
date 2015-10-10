@@ -32,7 +32,11 @@
                             tss
                             ace-jump-buffer
                             ;; java
-                            ;emacs-eclim
+                            ;;emacs-eclim
+                            ;; docker
+                            dockerfile-mode
+                            ;; scala
+                            ensime
                             ))
 
 ;;; ----------------------------------------------------------------------------
