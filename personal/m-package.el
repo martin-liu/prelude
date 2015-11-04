@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(eval-when-compile
+  (require 'use-package))
+
 ;; highlight-indentation, mainly for python, coffee
 (add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
 (highlight-indentation-current-column-mode t)
@@ -84,6 +87,10 @@
 
 ;; multiple-cursors-mode
 (require 'multiple-cursors)
+;; which-function-mode
+(which-function-mode 1)
+;; which-key-mode
+(which-key-mode 1)
 
 ;; emacs-eclim
 ;; (require 'eclim)

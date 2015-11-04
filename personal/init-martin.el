@@ -28,6 +28,9 @@
                             cider-decompile
                             cider-spy
                             pcre2el ; pcre regexp
+                            which-key
+                            use-package
+
                             ;; typescript
                             tss
                             ace-jump-buffer
