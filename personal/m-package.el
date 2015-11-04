@@ -40,6 +40,27 @@
 (require 'back-button)
 (back-button-mode 1)
 
+;; Org mode
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (setq truncate-lines nil)
+            (setq org-startup-indented t)
+            (auto-fill-mode 1)
+            ;; highlight code
+            (setq org-src-fontify-natively t)))
+
+;;; Set default org file to store note
+(setq org-default-notes-file "~/Dropbox/Martin/doc/GTD.org")
+
+;;; Quickly use C-c C to take note
+(global-set-key (kbd "C-c C") 'org-capture)
+
+;;; Setup capture template
+(setq org-capture-templates
+      '(("t" "TODO" entry (file+headline "" "Tasks") "* TODO %?\n %i\n")
+        ("n" "NOTE" entry (file+headline "" "Notes") "* NOTE - %?\n %i\n %a")))
+
 ;; Org export
 (setq org-export-htmlize-output-type 'css)
 
@@ -49,13 +70,7 @@
 ;; (customize-group "org-ac")
 (org-ac/config-default)
 
-;;Org
-;;;indent
-(setq org-startup-indented t)
-(add-hook 'org-mode-hook
-          (lambda ()
-            (setq truncate-lines nil)
-            (auto-fill-mode 1)))
+
 
 ;; Deft
                                         ;(require 'deft)
@@ -64,6 +79,7 @@
                                         ;(setq deft-text-mode 'org-mode)
                                         ;(setq deft-use-filename-as-title t)
                                         ;(global-set-key [f8] 'deft)
+
 
 ;; Parentheses
 ;; highlight and config color

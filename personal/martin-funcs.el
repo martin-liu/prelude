@@ -64,7 +64,7 @@
                 ((eq format 'latex)
                  (format "\\colorbox{%s}{%s}" path desc))))) ;; require \usepackage{color}
 
-            (local-set-key (kbd "C-c C-c") 'org-insert-with-red)
+            (local-set-key (kbd "C-c c") 'org-insert-with-red)
             ))
 
 ;;; 3. goto-last-change

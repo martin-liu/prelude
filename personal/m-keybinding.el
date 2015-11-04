@@ -34,6 +34,7 @@
 ;; martin
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 (global-set-key (kbd "<f6>") (lambda() (interactive)(find-file "~/Dropbox/Martin/doc/note/fragments.org")))
+(global-set-key (kbd "<f7>") (lambda() (interactive)(find-file "~/Dropbox/Martin/doc/GTD.org")))
 
 ;;; -----------------------------------------------------------------------
 
