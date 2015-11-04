@@ -52,6 +52,7 @@
 
 ;;; Set default org file to store note
 (setq org-default-notes-file "~/Dropbox/Martin/doc/GTD.org")
+(setq org-agenda-files '("~/Dropbox/Martin/doc/"))
 
 ;;; Quickly use C-c C to take note
 (global-set-key (kbd "C-c C") 'org-capture)
@@ -59,7 +60,9 @@
 ;;; Setup capture template
 (setq org-capture-templates
       '(("t" "TODO" entry (file+headline "" "Tasks") "* TODO %?\n %i\n")
-        ("n" "NOTE" entry (file+headline "" "Notes") "* NOTE - %?\n %i\n %a")))
+        ("n" "NOTE" entry (file+headline "" "Notes") "* NOTE - %?\n %i\n %a")
+        ("j" "Journal" entry (file+datetree "~/Dropbox/Martin/doc/journal.org")
+         "* %U\n%?")))
 
 ;; Org export
 (setq org-export-htmlize-output-type 'css)
