@@ -12,34 +12,41 @@
 
 ;; require some packages
 (prelude-require-packages '(color-theme-sanityinc-tomorrow
+                            spaceline
+                            ace-jump-buffer
                             highlight-indentation
                             highlight-parentheses
                             paredit
                             paren-face
                             multiple-cursors
                             emmet-mode
-                            lua-mode
                             org-ac
                             htmlize ; for highlight code when org mode export to html
                             markdown-mode
                             back-button
                             yasnippet
-                            cider
-                            cider-decompile
-                            cider-spy
                             pcre2el ; pcre regexp
                             which-key
                             use-package
 
+                            restclient
+
+                            ;;; Programming
+                            ;; lua
+                            lua-mode
                             ;; typescript
                             tss
-                            ace-jump-buffer
                             ;; java
                             ;;emacs-eclim
                             ;; docker
                             dockerfile-mode
                             ;; scala
                             ensime
+                            ;; clojure
+                            cider
+                            cider-decompile
+                            cider-spy
+
                             ))
 
 ;;; ----------------------------------------------------------------------------

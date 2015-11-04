@@ -14,6 +14,11 @@
 (disable-theme 'zenburn)
 (load-theme 'sanityinc-tomorrow-eighties t)
 
+;; spaceline
+(require 'spaceline-config)
+(spaceline-emacs-theme)
+(spaceline-toggle-minor-modes-off)
+
 ;; ace-window, used to jump between windows
 (setq aw-keys '(?d ?h ?t ?n ?s ?6 ?7 ?8 ?9))
 
