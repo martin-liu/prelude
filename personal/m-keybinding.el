@@ -6,6 +6,10 @@
 ;;; -----------------------------------------------------------------------
 
 ;;; Global key-bindings
+;; basic
+(global-set-key (kbd "s-}") 'forward-paragraph)
+(global-set-key (kbd "s-{") 'backward-paragraph)
+
 ;; simple-mode, (for basci editing)
 (global-set-key (kbd "\C-cmo") 'just-one-space)
 
