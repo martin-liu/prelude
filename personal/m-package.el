@@ -48,15 +48,18 @@
             (setq org-startup-indented t)
             (auto-fill-mode 1)
             ;; highlight code
-            (setq org-src-fontify-natively t)))
+            (setq org-src-fontify-natively t)
+            (org-display-inline-images)))
 
 ;;; Set default org file to store note
 (setq org-default-notes-file "~/Dropbox/Martin/doc/GTD.org")
 (setq org-agenda-files '("~/Dropbox/Martin/doc/"))
 
+;;; Set org tag list
+(setq org-tag-alist '(("@work" . ?w) ("@me" . ?m)))
+
 ;;; Quickly use C-c C to take note
 (global-set-key (kbd "C-c C") 'org-capture)
-
 ;;; Setup capture template
 (setq org-capture-templates
       '(("t" "TODO" entry (file+headline "" "Tasks") "* TODO %?\n %i\n")
