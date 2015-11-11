@@ -116,7 +116,7 @@
 
 ;;; Bind keys
 (global-set-key "\C-cmc" 'm-eval-and-append-as-comment)
-(global-set-key "\C-q" 'm-goto-last-change)
+(global-set-key "\C-c\C-q" 'm-goto-last-change)
 (global-set-key "\C-cmn" 'm-narrow-or-widen-dwim)
 
 (provide 'martin-funcs)
